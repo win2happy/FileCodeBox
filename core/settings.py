@@ -45,7 +45,7 @@ DEFAULT_CONFIG = {
     'uploadCount': 10,
     'errorMinute': 1,
     'errorCount': 1,
-    'port': 12345,
+    'port': 443,
     'showAdminAddr': 0,
     'robotsText': 'User-agent: *\nDisallow: /',
 }

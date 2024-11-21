@@ -127,5 +127,17 @@ async def get_config():
 
 if __name__ == '__main__':
     import uvicorn
+    import streamlit as st
+    import requests
 
     uvicorn.run(app='main:app', host="0.0.0.0", port=settings.port, reload=False, workers=1)
+
+    try:
+        response = requests.post("http://localhost:12345")
+        if response.status_code == 200:
+            data = response.json()
+            st.json(data)
+        else:
+            st.error("无法获取数据")
+    except requests.exceptions.RequestException as e:
+        st.error(f"请求失败: {e}")
